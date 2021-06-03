@@ -30,12 +30,10 @@ query2 = session.query(Canton).join(Parroquia, Establecimiento).filter(or_(Estab
         	Establecimiento.numEstud == 451, Establecimiento.numEstud == 454, Establecimiento.numEstud == 458,Establecimiento.numEstud == 459)).all()
  
 # SALIDA
-cadena = "Parroquias que tienen establecimientos únicamente en la jornada Nocturna\n"
+print("Parroquias que tienen establecimientos únicamente en la jornada Nocturna\n")
 for i in query:
-    cadena += "%s%s" % (cadena, i)
+    print(i)
 
-cadena += "%s\n\nCantones que tienen establecimientos como número de estudiantes tales como: 448, 450, 451, 454, 458, 459\n" % (cadena)
+print("\n\nCantones que tienen establecimientos como número de estudiantes tales como: 448, 450, 451, 454, 458, 459\n")
 for i in query2: 
-    cadena += "%s%s" % (cadena, i)
-
-print(cadena)
+    print(i)

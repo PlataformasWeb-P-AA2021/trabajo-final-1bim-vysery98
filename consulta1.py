@@ -27,12 +27,10 @@ query = session.query(Establecimiento).join(Parroquia,Canton,Provincia).filter(P
 query2 = session.query(Establecimiento).join(Parroquia,Canton).filter(Canton.nameCanton =="LOJA").all()
  
 # SALIDA
-cadena = "Establecimientos de la provincia de Loja\n"
+print("Establecimientos de la provincia de Loja\n")
 for i in query:
-    cadena += "%s%s" % (cadena, i)
+    print(i)
 
-cadena += "%s\n\nEstablecimientos del cantón Loja\n" % (cadena)
+print("\n\nEstablecimientos del cantón Loja\n")
 for i in query2: 
-    cadena += "%s%s" % (cadena, i)
-
-print(cadena)
+    print(i)

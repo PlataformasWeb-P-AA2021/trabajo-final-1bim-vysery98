@@ -23,16 +23,14 @@ session = Session()
 
 # Consulta realizada a la entidad Parroquia mediante query, se emplea join para combinar los registros de entidades a las que
 # se deberá acceder.
-query = session.query(Establecimiento).join(Parroquia).filter(and_(Establecimiento.numDocentes >=20,Establecimiento.tipoEduc.like("%Permanente%"))).order_by(Parroquia.parroquia).all()
+query = session.query(Establecimiento).join(Parroquia).filter(and_(Establecimiento.numDocentes >=20,Establecimiento.tipoEduc.like("%Permanente%"))).order_by(Parroquia.nameParroquia).all()
 query2 = session.query(Establecimiento).filter(Establecimiento.codDistrito == "11D02").order_by(Establecimiento.sostenimiento).all()
  
 # SALIDA
-cadena = "Establecimientos ordenados por nombre de parroquia que tengan más de 20 profesores y la cadena 'Permanente' en tipo de educación\n"
+print("Establecimientos ordenados por nombre de parroquia que tengan más de 20 profesores y la cadena 'Permanente' en tipo de educación\n")
 for i in query:
-    cadena += "%s%s" % (cadena, i)
+    print(i)
 
-cadena += "%s\n\nEstablecimientos ordenados por sostenimiento y tengan código de distrito 11D02" % (cadena)
+print("\n\nEstablecimientos ordenados por sostenimiento y tengan código de distrito 11D02")
 for i in query2: 
-    cadena += "%s%s" % (cadena, i)
-
-print(cadena)
+    print(i)

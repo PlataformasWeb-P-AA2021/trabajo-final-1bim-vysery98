@@ -95,7 +95,7 @@ class Canton(Base):
     # Relación con la entidad Provincia
     provincia = relationship("Provincia", back_populates="cantones")
     def __repr__(self):
-        return "Código de División Política Administrativa (Cantón) = %s\nCantón = " % (
+        return "Código de División Política Administrativa (Cantón) = %d\nCantón = %s" % (
                         self.id,
                         self.nameCanton)
 
@@ -110,7 +110,7 @@ class Provincia(Base):
     cantones = relationship("Canton", back_populates="provincia")
 
     def __repr__(self):
-        return "Código de División Política Administrativa (Provincia) = %s\nProvincia = " % (
+        return "Código de División Política Administrativa (Provincia) = %s\nProvincia = %s" % (
                         self.id,
                         self.nameProvincia)
 

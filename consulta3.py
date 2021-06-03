@@ -28,12 +28,10 @@ query2 = session.query(Establecimiento).join(Parroquia).filter(Parroquia.namePar
             Establecimiento.numEstud >= 21).all()
  
 # SALIDA
-cadena = "Cantones con establecimientos de 0 profesores\n"
+print("Cantones con establecimientos de 0 profesores:\n")
 for i in query:
-    cadena += "%s%s" % (cadena, i)
+    print(i)
 
-cadena += "%s\n\nEstablecimientos que pertenecen a la parroquia Catacocha con estudiantes mayores o iguales a 21\n" % (cadena)
-for i in query2: 
-    cadena += "%s%s" % (cadena, i)
-
-print(cadena)
+print("\n\nEstablecimientos que pertenecen a la parroquia Catacocha con estudiantes mayores o iguales a 21:\n")
+for i in query2:
+    print(i)

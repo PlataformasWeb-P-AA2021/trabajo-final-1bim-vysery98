@@ -26,15 +26,13 @@ session = Session()
 query = session.query(Establecimiento).filter(Establecimiento.numDocentes > 100).order_by(Establecimiento.numEstud).all()
 # Consulta realizada a la entidad Establecimiento mediante query, se emplea join para combinar los registros de entidades a las que
 # se deberá acceder y finalmente el filter para indicar que solo se desea que tenga más de 100 docentes, ordenados por número de profesores.
-query2 = session.query(Establecimiento).filter(Establecimiento.num_docentes > 100).order_by(Establecimiento.num_docentes).all()
+query2 = session.query(Establecimiento).filter(Establecimiento.numDocentes > 100).order_by(Establecimiento.numDocentes).all()
  
 # SALIDA
-cadena = "Establecimientos ordenados por número de estudiantes; que tengan más de 100 profesores\n"
+print("Establecimientos ordenados por número de estudiantes; que tengan más de 100 profesores\n")
 for i in query:
-    cadena += "%s%s" % (cadena, i)
+    print(i)
 
-cadena += "%s\n\nEstablecimientos ordenados por número de profesores; que tengan más de 100 profesores" % (cadena)
+print("\n\nEstablecimientos ordenados por número de profesores; que tengan más de 100 profesores")
 for i in query2: 
-    cadena += "%s%s" % (cadena, i)
-
-print(cadena)
+    print(i)

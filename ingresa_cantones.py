@@ -16,6 +16,7 @@ dataC = dataC.values.tolist()
 
 for i in dataC:
     canton = Canton(id = i[1], nameCanton = i[2], provincia = session.query(Provincia).filter_by(id = i[0]).one())
+
     session.add(canton)
 
 # Confirmar transacciones
